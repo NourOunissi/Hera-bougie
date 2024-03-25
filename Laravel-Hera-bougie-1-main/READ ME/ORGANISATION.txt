@@ -1,0 +1,30 @@
+
+Cachier des charge 
+1) contexte 
+Je suis créatrice de bougie, je souhaiterais créer un site web afin de faciliter la vente de mes bougies.
+pour qui 
+l'entreprise
+pourquoi elle a besoin du produit 
+2) decrire ce que l'apprlication fait
+
+3) Technique et fonctionnalinnalité 
+arborescence du site 
+Page 1: acuueil 
+page 2: article de bougie avec un visuel , un prix, un avis, pouvoir l'ajouter aux panier et la disponibilité avec en option un filtre/trier
+Page3:Composition de bougie avec pop-up :1-forme de la bougie
+					 2-choisir la cire 
+					 3- choisir le parfum
+					 4-détail choisir la colorie (fleur,paillette...)
+Page4: pouvoir s'identifier avec email:mot de passe ou de créer un compte avec le nom,prenom,e-mai,mot de passe, création de compte, adresse postale, code départementale, et la ville.
+Page5: voir le panier et pouvoir aller au paiment ou retourner à la boutique 
+Page6: page de contact en renseignant son nom et prenom son numero de télephone objet et le message afin d'etre recontacter
+
+langage de developpement:
+-->le client web: html/css Java script
+-->le client lourd/logiciel: en java avec laravel comme framework et boostrap
+
+
+4)maquette du projet 
+looping
+
+

@@ -1,0 +1,58 @@
+u5-hera bougie
+laravel
+créer la base de données
+faire les migration
+creer un dossier: page isolé html css des maquette
+
+Laravel
+le model MVC(model view controller) : model= classe heritgae view= les page afficher aux utilisateur voit controller= controle les page decide quoi afficher met en relation nos pages avec la base de donnee
+
+dossier app: le dossier le plus important celui qui contient l'application tous le code php
+app/console/kermel ==> contienne des tache
+app/exception/handler ==> contient des exception
+app/Http/controllers ==> contient les controller
+app/Http/middleware ==> intergiciel mettre en relation des applications qui ne parle pas le meme langage comme le webservice
+app/model ==> classe
+app/provider  ==> devifinir des services personnalisé
+
+dossier boostrap: contient des dossier pour lancer laravel
+
+dossier config permet la configuration du framework:
+chaque fichier corespond à une fonctionnalité configurable
+met la gestion de la base de donnée)prfrc
+database/migrations : permet de decrire la base de donner (modifier ou creer)
+commande pour avoir les dossier de basede donner partager les migrations
+dossier public : tout les fichier acces pas les utilisateurs image fichier
+
+dossier ressource : autre dossier qui est pas du php
+app/ressources/lang\  ==> si on veut que le site est multi langue
+app/ressources/views ==> page html
+
+dossier route: organise les route pour url des route vers le web
+route/appi : definir les routes de nos appi
+route/web : organise les route pour url des route vers le web
+
+dossier storage : tout les dossier generer par mon application
+
+dossier test: teste l'applicatin avant de l'utuliser
+
+dossier vendor : contient tout les dossiers dependnaces php telecharger via composer
+
+editor.config ==> pour configuer l'editeur de texte
+.env == > contient nos variable d'environnement , unique qui ne peuvent pas etre changer et etre utiliser globalement par notre application
+.env.example ==> tester avant de changer
+.gitattributes  ==> permet d'utiliser git
+.styleci.yml  ==>
+artisan ==> permet de lancer des commandes comme php artisan php artisan serve
+composer.json  ==> contien toute les dependances requise par notre server
+commande composer.app permet d'installer une dependance relier au dossier vendor
+package.json  ==> dependance pur le js
+phpunit.xml  ==> est un outil qui permet de lancer des testes ini et web
+READE.md  ==> juste du texte
+server.php ==> est present que la comande php artisan serve emarche
+webpack.mix.js  ==> pour les dependances
+
+ php artisan migrate: recharger la base de donne
+ 
+ php artisan db:seed
+: pour charger les article

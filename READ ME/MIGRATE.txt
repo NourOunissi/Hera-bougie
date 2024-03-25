@@ -1,0 +1,33 @@
+note du 23/10/2023
+boostrap : permet de mettre en place le css et javascrip rapidement
+commande terminal sur ajax-crud:
+
+composer
+cd myapp ==> me placeer
+php artisan serve ==> demarer le serveur
+mysql -u root ==> poure rentrer dans la base de donner il faut que dans xamp soit ouvert
+show databases;  ==> les base de donner creer
+CREATE DATABASE nour; ==> creer une nouvelle base de donner
+use nour;  ==> entrer dans cette basede donner
+
+CREATE TABLE contact (
+    -> id_contact INT AUTO_INCREMENT,
+    -> fournisseur VARCHAR(100),
+    -> client VARCHAR(100) NOT NULL,
+    -> user_admin VARCHAR (100) NOT NULL,
+    -> modorateur VARCHAR (100),
+    -> PRIMARY KEY (id_contact)
+    -> );
+php artisan make:migration create_table_article--create = article  ==> creer une table
+php artisan make:model Employ -m ==>
+php artisan migrate ==>
+php artisan make:controller EmployeController ==> permet de de crer le controller qui nous permet de gerer l'affichage la modification codage autour de l'objet emplyer
+
+
+php artisan make:seeder CouleursSeeder   ==> crée un fichier qui se nomme couleur seeders
+creer seeder article seeder 12 block par raport au article dans les seeders
+ parfum
+cire
+couleur
+forme
+ créer page forme

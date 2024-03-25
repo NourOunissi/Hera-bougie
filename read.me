@@ -1,0 +1,71 @@
+select produits.*, couleurs.nom from produits left join couleurs on couleurs.id =
+ produits.id_couleur;
+
+select produits.*, couleurs.nom, parfums.nom from produits left join couleurs on couleurs.id = produits.id_couleur left join parfums on parfums.id = produits.id_parfum;
+
+select produits.*, couleurs.nom, parfums.nom, cires.nom from produits left join couleurs on couleurs.id = produits.id_couleur left join parfums on parfums.id = produits.id_parfum left join cires on cires.id = produits.id_cire;
+
+select produits.*, couleurs.nom, parfums.nom, cires.nom from produits left join couleurs on couleurs.id = produits.id_couleur left join parfums on parfums.id = produits.id_parfum left join cires on cires.id = produits.id_cire where ((actif=true) and (type='Bougie'));
+
+
+panier:
+laravel panier api
+paypal
+modifier
+cordonner du client si connecter
+
+contact:
+lier au mail de l'enttreprise
+
+
+
+ionos:
+prefix public: 19ff06de682844fd9ff6e8796bee8e36
+clé: ekc57aULci3tLUePt-RwYhz6XNj3Xb1OeAu3SMbU5LMQ6Dym5oevMqIl0lvaT2I6IDkRYjBP9B7JL5nt-e0X2Q
+
+créer une nouvelle page : exemple crer la vue oublie mot de passe
+1- créer la route : Route::match(['get', 'post'], '/forgot_password', 'forgotPassword')->name('app_forgotpassword');
+2-le controller mettre la fonction qu'on a mit dans la route : public function forgotPassword()
+    {
+        return view('auth.forgot_password');
+    }
+
+3- creer la vu et la placer dans le dossier qu'on a indiquer dans le controller
+@extends('layouts.base')
+
+@section('title', 'Forgot password')
+
+@section('content')
+
+<h1>Forgot password</h1>
+@endsection
+4- ajouter le lien dans la page dans laquelle on veut l'afficher :login.blade.php
+href="{{ route('app_forgotpassword')}}
+
+5- designer la page
+-->formulaire: <form action="{{ route('app_forgotpassword') }}" method="post"> </form>
+
+-->csrf : Le token ou jeton en français est obligatoire lorsqu'on essaie de lancer une requête HTTP ou lorsqu'on essaie de soumettre un formulaire,
+c'est pour prévenir les attaques par injections. Laravel génère automatiquement un CSRF  "token" pour chaque session utilisateur active gérée par l'application.
+ Ce token ou jeton  vérifie que l'utilisateur connecté à notre application est réellement la personne qui fait les requêtes à l'application
+
+ -->le message d'errur :{{-- on inclus les messages n'alert --}}
+                      @include('alerts.alert-message')
+
+ -->le label et le input pour rentrer le mail:
+ <label for="email-send" class="form-label">Email</label>
+ <input type="email" name="email-send" id="email-send" class="form-control">
+
+ -->si l'email n'xiste pas message d'erreur :
+
+
+
+
+ composer install:
+php artisan key:generate:
+
+dupliquer le fichier.env.example le renommer en env.
+
+npm install:
+
+npm run dev:
