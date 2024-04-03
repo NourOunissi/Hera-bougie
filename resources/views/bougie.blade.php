@@ -23,8 +23,19 @@
                             Parfum: {{ $produit['parfum'] }}<br />
                             Cire: {{ $produit['parfum'] }}</p>
 
+                        <div class="row">
+                            <div class="col-md-9 col-lg-9 col-xl-9">
+                                <h6 class="text-muted">Quantité</h6>
+                                <input type="number" min="1" class="form-control" value="1"
+                                    id="quantity{{ $produit['id'] }}">
+                            </div>
+                        </div>
+                        <br>
+
                         <button class="btn btn-outline-dark mt-auto addToCart"
                             data-produit-id="{{ $produit['id'] }}">Ajouter au panier</button>
+
+
                     </div>
                 </div>
             </div>
@@ -39,29 +50,35 @@
 
 
     <script>
-        document.addEventListener('click', function(event) {
-            if (event.target.classList.contains('addToCart')) {
-                // Récupérez l'ID de l'article à partir de l'attribut data-article-id
-                let produitId = event.target.getAttribute('data-produit-id');
-                // Faites une requête Ajax pour ajouter l'article au panier
-                $.ajax({
-                    url: '{{ route('addToCart') }}',
-                    type: 'POST',
-                    data: {
-                        '_token': '{{ csrf_token() }}',
-                        'produit_id': produitId
-                    },
-                    success: function(response) {
-                        alert(response
-                        .message); // Vous pouvez personnaliser cela en fonction de vos besoins
-                    },
-                    error: function(error) {
-                        console.log(error);
-                    }
-                });
-            }
+        $(document).on('click', '.addToCart', function() {
+            // Récupérez l'ID du produit à partir de l'attribut data-produit-id
+            let produitId = $(this).data('produit-id');
+
+            // Récupérez la quantité du input correspondant
+            let newQuantity = $('#quantity' + produitId).val();
+
+           
+
+            // Faites une requête Ajax pour ajouter le produit au panier
+            $.ajax({
+                url: '{{ route('addToCart') }}',
+                type: 'POST',
+                data: {
+                    '_token': '{{ csrf_token() }}',
+                    'produit_id': produitId,
+                    'quantity': newQuantity
+                },
+                success: function(response) {
+                    alert(response
+                    .message); // Vous pouvez personnaliser cela en fonction de vos besoins
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
         });
     </script>
+
 
     <script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 @endsection

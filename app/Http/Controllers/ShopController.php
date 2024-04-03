@@ -15,10 +15,12 @@ class ShopController extends Controller
     public function addToCart(Request $request)
     {
         $produit_id = $request->produit_id;
+        $newQuantity = $request->quantity;
 
         // Validation des données
         $request->validate([
             'produit_id' => 'required|exists:produits,id',
+            'quantity' => 'required|integer|min:1',
         ]);
 
         // Récupérer l'article à partir de la base de données
@@ -39,7 +41,7 @@ class ShopController extends Controller
                 'nom' => $produit->nom,
                 'image' => $produit->image,
                 'price' => $produit->prix,
-                'quantity' => 1,
+                'quantity' => $newQuantity,
                 'tailles' => $produit->taille
             ];
 
@@ -48,7 +50,7 @@ class ShopController extends Controller
             // Vous pouvez retourner une réponse pour indiquer que l'opération a été effectuée avec succès
             //return response()->json(['message' => 'Article déjà dans le panier']);
 
-            $cartItems[$existingItemKey]['quantity'] += 1;
+            $cartItems[$existingItemKey]['quantity']  = $newQuantity;
 
         }
 

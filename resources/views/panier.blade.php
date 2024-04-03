@@ -16,7 +16,7 @@
                             <div class="col-lg-8">
 
                                 <div class="d-flex justify-content-between align-items-center mb-5">
-                                    <h1 class="fw-bold mb-0 text-black">Panier d'achat moi moi moi</h1>
+                                    <h1 class="fw-bold mb-0 text-black">Panier d'achat </h1>
                                     <h6 class="mb-0 text-muted">{{ count($cartItems) }} items</h6>
                                 </div>
                                 <hr class="my-4">
