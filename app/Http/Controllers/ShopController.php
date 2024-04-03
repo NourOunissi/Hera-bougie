@@ -50,7 +50,7 @@ class ShopController extends Controller
             // Vous pouvez retourner une réponse pour indiquer que l'opération a été effectuée avec succès
             //return response()->json(['message' => 'Article déjà dans le panier']);
 
-            $cartItems[$existingItemKey]['quantity']  = $newQuantity;
+            $cartItems[$existingItemKey]['quantity']  = $newQuantity ;
 
         }
 

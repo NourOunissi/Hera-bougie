@@ -28,7 +28,7 @@ $('#register-user').click(function () {
                 $('#email').addClass('is-valid');
                 $('#error-register-email').text("");
 
-                if (passwordLength >= 8) {
+                if (passwordLength >= 10 && /[A-Z]/.test(password) && /[a-z]/.test(password) && /[0-9]/.test(password) && /[^A-Za-z0-9]/.test(password)) {
                     $('#password').removeClass('is-invalid');
                     $('#password').addClass('is-valid');
                     $('#error-register-password').text("");
@@ -83,7 +83,7 @@ $('#register-user').click(function () {
                 } else {
                     $('#password').addClass('is-invalid');
                     $('#password').removeClass('is-valid');
-                    $('#error-register-password').text("Your password must be at last 8 characteres!");
+                    $('#error-register-password').text(" Change Your password !");
                 }
 
             } else {
