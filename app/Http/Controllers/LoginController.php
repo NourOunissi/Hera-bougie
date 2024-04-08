@@ -68,7 +68,7 @@ class LoginController extends Controller
         $user = User::where('activation_token', $token)->first();
 
         if (!$user) {
-            return redirect()->route('login')->with('danger', 'This token doesn\'t match any user.');
+            return redirect()->route('login')->with('danger', 'Ce jeton ne correspond à aucun utilisateur.');
         }
 
         if ($this->request->isMethod('post')) {
@@ -80,7 +80,8 @@ class LoginController extends Controller
             if ($activation_code != $code) {
 
                 return back()->with([
-                    'danger' => 'This activation code is invalid!',
+                    'danger' =>
+                    "Ce code d'activation est invalide !",
                     'activation_code' => $activation_code
                 ]);
             } else {
@@ -96,7 +97,7 @@ class LoginController extends Controller
 
                     ]);
 
-                return redirect()->route('login')->with('success', 'Your e-mail address has been verified!');
+                return redirect()->route('login')->with('success', 'Votre adresse e-mail a été vérifiée !');
             }
         }
 
@@ -119,8 +120,14 @@ class LoginController extends Controller
             Auth::logout();
 
             return redirect()->route('app_activation_code', ['token' => $activation_token])
-                ->with('warning', 'Your account is not activated yet. Please check your mailbox
-                                            and activate your account or resend the confirmation message.');
+                ->with('warning',
+                'Votre compte n/est pas encore activé. Veuillez vérifier votre boîte de réception et activer votre compte ou renvoyer le message de confirmation.'
+
+
+
+
+
+                );
         } else {
             return redirect()->route('app_bougie');
         }
@@ -145,7 +152,8 @@ class LoginController extends Controller
             'app_activation_code',
             ['token' => $token]
         )
-            ->with('success', 'You have just resend the new activation code.');
+            ->with('success',
+            'Vous venez de renvoyer le nouveau code d/activation.');
     }
 
     public function activationAccountLink($token)
@@ -153,7 +161,8 @@ class LoginController extends Controller
         $user = User::where('activation_token', $token)->first();
 
         if (!$user) {
-            return redirect()->route('login')->with('danger', 'This token doesn\'t match any user.');
+            return redirect()->route('login')->with('danger',
+            "Ce jeton ne correspond à aucun utilisateur.");
         }
 
         DB::table('users')
@@ -167,7 +176,7 @@ class LoginController extends Controller
 
             ]);
 
-        return redirect()->route('login')->with('success', 'Your e-mail address has been verified!');
+        return redirect()->route('login')->with('success', 'Votre adresse e-mail a été vérifiée !');
     }
 
     public function ActivationAccountChangeEmail($token)
@@ -181,7 +190,7 @@ class LoginController extends Controller
 
             if ($user_existe) {
                 return back()->with([
-                    'danger' => 'This address email is already used Please enter another email adress!',
+                    'danger' => 'Cette adresse e-mail est déjà utilisée. Veuillez saisir une autre adresse e-mail !',
                     'new_email' => $new_email
                 ]);
             } else {
@@ -206,7 +215,7 @@ class LoginController extends Controller
                     'app_activation_code',
                     ['token' => $token]
                 )
-                    ->with('success', 'You have just resend the new activation code.');
+                    ->with('success', 'Vous venez de renvoyer le nouveau code d/activation.');
             }
         } else {
             return view('auth.activation_account_change_email', [
@@ -235,12 +244,12 @@ class LoginController extends Controller
                     ->where('email', $email)
                     ->update(['activation_token' => $activation_token]);
 
-                $message = 'We have just sent the request to reset your password, please check your mail-box';
+                $message = 'Nous venons d/envoyer la demande de réinitialisation de votre mot de passe, veuillez vérifier votre boîte de réception.';
                 return back()->withErrors(['email-success' => $message])
                     ->with('old_email', $email)
                     ->with('success', $message);
             } else {
-                $message = 'The email you entered does not exist!';
+                $message = 'L/adresse e-mail que vous avez saisie n/existe pas !';
                 return back()->withErrors(['email-error' => $message])
                     ->with('old_email', $email)
                     ->with('danger', $message);
@@ -272,9 +281,9 @@ class LoginController extends Controller
                                 'activation_token' => ''
 
                             ]);
-                        return redirect()->route('login')->with('success', 'New password saved successfully!');
+                        return redirect()->route('login')->with('success', 'Le nouveau mot de passe a été enregistré avec succès !');
                     } else {
-                        return back()->with('danger', 'this token does not match any user');
+                        return back()->with('danger', 'Ce jeton ne correspond à aucun utilisateur.');
                     }
                 } else {
                     return back()->withErrors(['password-error-confirm' => $message, 'password-success' => 'success'])
@@ -283,7 +292,7 @@ class LoginController extends Controller
                         ->with('old-new-password', $new_password);
                 }
             } else {
-                $message = "Your password must be at least 8 characters!";
+                $message = "Votre mot de passe doit comporter au moins 8 caractères !";
                 return back()->withErrors(['password-error' => $message])
                     ->with('danger', $message)
                     ->with('old-new-password', $new_password);

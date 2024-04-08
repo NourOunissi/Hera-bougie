@@ -83,7 +83,7 @@ $('#register-user').click(function () {
                 } else {
                     $('#password').addClass('is-invalid');
                     $('#password').removeClass('is-valid');
-                    $('#error-register-password').text(" Change Your password !");
+                    $('#error-register-password').text(" Your password must meet the following criteria: at least 1 uppercase letter, at least 1 lowercase letter, at least 1 digit, at least 1 special character, and minimum 10 characters in length. !");
                 }
 
             } else {
