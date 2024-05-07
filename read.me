@@ -61,11 +61,22 @@ c'est pour prévenir les attaques par injections. Laravel génère automatiqueme
 
 
 
- composer install:
-php artisan key:generate:
-
+1) composer install
+2) php artisan key:generate:
+verifier dans .env si APP_KEY il y a une cle
+sinon
 dupliquer le fichier.env.example le renommer en env.
 
 npm install:
 
 npm run dev:
+
+
+TESTES :
+
+uitaire: fonction bien designer : unite de code independament des dependance dexterne (base de donnée, fichier) // peu de garantit un bout de code fonctionne
+integration : en prenant en compte les dependance extern externe // prend en compte les donnée c'est plus globale meilleur garantit
+bout en bout : le logiciel se met à la place de l'utilisateur (selinium IDE) // forte fiable
+
+on utilise des framework de teste comme PHP unit pour laravel et pour C# NUnit  ou MSTest ( microsoft integret a VS), xUnit
+framework : librerie 
