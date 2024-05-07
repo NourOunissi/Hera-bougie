@@ -4,7 +4,7 @@
 
 @section('content')
     @vite('resources/css/contact.css')
-    <h1>Contactez-nous !</h1>
+    <h1>Contactez-nous ljlhjhjjkhjghjg!</h1>
 
     <form action="#" method="post">
         <label for="nom">Nom :</label>
@@ -23,5 +23,5 @@
             <button class="btn btn-light" type="submit">Envoyer</button>
         </div>
     </form>
-    
+
 @endsection
