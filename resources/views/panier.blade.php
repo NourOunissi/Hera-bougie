@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @vite('resources/css/panier.css')
 
-@section('title', 'Panier')
+@section('title', 'Panier d\'achat')
 
 @section('content')
     <h1>Panier</h1>
