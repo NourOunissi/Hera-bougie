@@ -39,6 +39,7 @@ Route::controller(LoginController::class)->group(function () {
 
 Route::controller(ProduitsController::class)->group(function () {
     Route::get('/bougie', 'bougie')->name('app_bougie');
+    Route::post('/bougie', 'bougie')->name('app_bougie');
 });
 
 Route::controller(ShopController::class)->group(function () {
