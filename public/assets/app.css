@@ -1,6 +1,10 @@
 @import "./lib/bootstrap/css/bootstrap.css";
 @import "./main/user/user.css";
 
+
+
+
+
 .bg-light {
     background-color:rgba(181, 121, 110, 1) !important;
 }

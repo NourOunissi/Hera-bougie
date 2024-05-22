@@ -6,7 +6,7 @@
     @vite('resources/css/contact.css')
     <h1>Contactez-nous!</h1>
 
-    <form action="#" method="post">
+    <form action="#" method="get">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required>
 
@@ -23,5 +23,20 @@
             <button class="btn btn-light" type="submit">Envoyer</button>
         </div>
     </form>
+    <script>
+        function showConfirmation(event) {
+          event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+          Swal.fire({
+            title: "Mail envoyé !",
+            text: "Votre courrier électronique a été envoyé avec succès.",
+            icon: "success",
+            confirmButtonText: "OK"
+          }).then(function () {
+            // Réinitialiser le formulaire ici si nécessaire
+            event.target.submit(); // Envoyer le formulaire après la confirmation
+          });
+        }
+      </script>
 
 @endsection

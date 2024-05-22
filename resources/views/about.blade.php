@@ -7,9 +7,9 @@
     <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/assets/img/about1.png" class="d-block w-90" alt="...">
+                <img src="/assets/img/about2.png" class="d-block w-90" alt="...">
             </div>
-        
+
             <div class="carousel-item">
                 <img src="/assets/img/about3.png"class="d-block w-90" alt="...">
             </div>
