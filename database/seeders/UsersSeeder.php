@@ -21,7 +21,7 @@ class UsersSeeder extends Seeder
             'ville' => 'Paris',
             'telephone' => '0123456789',
             'email' => 'philippe.kurz@gmail.com',
-            "password" => bcrypt('12345678'),
+            "password" => bcrypt('5pK28-@7'),
             'is_verified' => 1,
         ]);
         DB::table('users')->insert([
@@ -32,8 +32,20 @@ class UsersSeeder extends Seeder
             'ville' => 'Paris',
             'telephone' => '0123456789',
             'email' => 'nour.ounissi@gmail.com',
-            "password" => bcrypt('12345678'),
+            "password" => bcrypt('5pK28-@7'),
             'is_verified' => 1,
         ]);
+        DB::table('users')->insert([
+            'name' => 'jury',
+            'prenom' => 'Bts',
+            'adresse' => '1 rue de la paix',
+            'code_postal' => '75000',
+            'ville' => 'Paris',
+            'telephone' => '0123456789',
+            'email' => 'jury@ifcsio2022.fr',
+            "password" => bcrypt('5pK28-@7'),
+            'is_verified' => 1,
+        ]);
+
     }
 }
