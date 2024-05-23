@@ -233,6 +233,30 @@
     }
 </script>
 
+<script>
+    function passerCommande() {
+
+fetch('{{ route("passer-commande") }}', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+    }
+})
+    .then(response => response.json())
+    .then(data => {
+
+        // Videz le panier si la commande a été passée avec succès
+        if (!data.error) {
+            alert(data.message);
+            viderPanier();
+            //showOrderConfirmation();
+        } else {
+            alert(error.message);
+        }
+    })
+}
+</script>
 
 </body>
 

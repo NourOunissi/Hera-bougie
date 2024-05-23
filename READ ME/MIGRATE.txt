@@ -31,3 +31,7 @@ cire
 couleur
 forme
  créer page forme
+
+
+ php artisan migrate:refresh
+pgp 
