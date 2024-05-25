@@ -4,15 +4,19 @@
 
 @section('content')
 
-<div id="home" class="hero route bg-image" style="background-image: url(assets/img/fond.png);" >
-    <div class="hero-content display-table">
-        <div class="table-cell">
-            <div class="container">
-                <h1 class="hero-title mb-4">Hera Bougie</h1>
-                <p class="hero-subtitle"><span class="typed" data-typed-items="JUST LIGHT IT!"></span></p>
-            </div>
-        </div>
+<h1 class="text-center">Hera Bougie</h1>
+<div
+    style="background-image: url(assets/img/fond.png); background-repeat: no-repeat; background-size: cover; max-width: 700px; margin: 0 auto; min-height: 600px;">
+
+
+    <div class="container">
+
+        <p style="font-size: 24px; padding:150px 0 0 20px; color:#ddc2b7;"><span class="typed"
+                data-typed-items="JUST LIGHT IT!"></span>
+        </p>
     </div>
+
+
 </div>
 
 <script>

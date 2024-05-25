@@ -4,21 +4,26 @@
 
 @section('content')
 
-<div style="border: solid 1px red; display: flex; flex-direction: row;">
+<div style="display: flex; flex-direction: row;">
     <h1>Bougies</h1>
-    <div style="display: flex; align-items: center; justify-content: space-between; border: solid 1px red; ">
-        <select id="couleur" name="couleur" class="form-select" aria-label="Default select example">
-            <option selected value="">Couleur</option>
-            <option value="1">Rouge</option>
-            <option value="2">Rose</option>
-            <option value="3">Blanc</option>
+    <div style="display: flex; align-items: center; justify-content: space-between; gap:20px;margin-left: 20px;">
+        
+    <!-- Couleurs -->
+        <select id="couleur" name="couleur" class="form-select" aria-label="Default select example" style="width: 150px;">
+            <option selected value=""></option>
+            @foreach ($couleurs as $couleur)
+                <option value="{{ $couleur['id'] }}" @if ($couleur['id'] == $couleurId) selected @endif>{{ $couleur['nom'] }}</option>
+            @endforeach
         </select>
-        <select id="cire" name="cire" class="form-select" aria-label="Default select example">
-            <option selected value="">Cire</option>
-            <option value="1">Animal</option>
-            <option value="2">Minéral</option>
-            <option value="3">Végétal</option>
+
+        <!-- Cires -->
+        <select id="cire" name="cire" class="form-select" aria-label="Default select example" style="width: 150px;">
+            <option selected value=""></option>
+            @foreach ($cires as $cire)
+                <option value="{{ $cire['id'] }}" @if ($cire['id'] == $cireId) selected @endif>{{ $cire['nom'] }}</option>
+            @endforeach
         </select>
+
     </div>
 </div>
 <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -37,7 +42,7 @@
                         En stock: {{ $produit['stock'] }} <br />
                         Couleur: {{ $produit['couleur'] }}<br />
                         Parfum: {{ $produit['parfum'] }}<br />
-                        Cire: {{ $produit['parfum'] }}</p>
+                        Cire: {{ $produit['cire'] }}</p>
 
                     <div class="row">
                         <div class="col-md-9 col-lg-9 col-xl-9">
@@ -57,12 +62,6 @@
     @endforeach
 
 </div>
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
 
 <script>
     $(document).on('click', '.addToCart', function () {
@@ -93,35 +92,17 @@
         });
     });
 
+    // Chargement et synchronisation du combobox couleur
     document.querySelector('#couleur').addEventListener('change', function () {
-        console.log("Couleur = " + this.value);
-
-        $.ajax({
-            url: '{{ route('app_bougie') }}',
-            type: 'POST',
-            data: {
-                '_token': '{{ csrf_token() }}',
-                'couleur': document.querySelector('#couleur').value,
-                'cire': document.querySelector('#cire').value
-            },
-            success: function (response) {
-                alert(response
-                    .message); // Vous pouvez personnaliser cela en fonction de vos besoins
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-
-
+        document.location.href = '{{ route('app_bougie') }}?couleur=' + this.value +
+            '&cire=' + document.querySelector('#cire').value;
     });
 
+    // Chargement et synchronisation du combobox cire
     document.querySelector('#cire').addEventListener('change', function () {
-        console.log("Cire = " + this.value);
+        document.location.href = '{{ route('app_bougie') }}?couleur=' + document.querySelector('#couleur').value +
+            '&cire=' + this.value;
     });
 
 </script>
-
-
-<script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 @endsection

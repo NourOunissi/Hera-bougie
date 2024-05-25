@@ -50,7 +50,7 @@ class ShopController extends Controller
             // Vous pouvez retourner une réponse pour indiquer que l'opération a été effectuée avec succès
             //return response()->json(['message' => 'Article déjà dans le panier']);
 
-            $cartItems[$existingItemKey]['quantity']  = $newQuantity ;
+            $cartItems[$existingItemKey]['quantity'] = $newQuantity;
 
         }
 
@@ -220,74 +220,5 @@ class ShopController extends Controller
     }
 
 
-
-
-    public function passerCommande(Request $request)
-    {
-
-        $userId = Auth::id();
-        $adresseLivraison = $request->adresse_livraison;
-
-
-        $numCommande = mt_rand(100000, 999999);
-
-        // Variables pour le total
-        $total_ht = 0;
-        $total_ttc = 0;
-        $total_tva = 0;
-
-        try {
-
-            $commandeEntete = new CommandeEntete;
-            $commandeEntete->id_num_commande = $numCommande;
-            $commandeEntete->date = now();
-            $commandeEntete->id_user = $userId;
-            $commandeEntete->total_ht = 0;
-            $commandeEntete->save();
-
-
-
-            $cartItems = Session::get('cart', []);
-
-
-            foreach ($cartItems as $item) {
-
-                $commandeEntete->Details()->create([
-                    'id_commande' => $commandeEntete->id,
-                    'id_article' => $item['id'],
-                    'taille' => $item['taille'],
-                    'quantite' => $item['quantity'],
-
-                    // La boutique est en ttc
-                    'prix_ttc' => $item['price'],
-                    // On calcule le prix ht
-                    'prix_ht' => $item['price'] * .8,
-                    // On calcule le montant de la tva
-                    'montant_tva' => $item['price'] * .2,
-                    'remise' => 0,
-                ]);
-
-                // Calcul du cumul commande
-                $total_ht += $item['price'] * .8;
-                $total_ttc += $item['price'];
-                $total_tva += $item['price'] * .2;
-
-                $article = Article::find($item['id']);
-                $article->tailles()->where('taille', $item['taille'])->decrement('stock', $item['quantity']);
-            }
-
-            // Mise à jour de la commande avec le total ht
-            $commandeEntete->total_ht = $total_ht;
-            $commandeEntete->total_ttc = $total_ttc;
-            $commandeEntete->total_tva = $total_tva;
-            $commandeEntete->save();
-
-        } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()]);
-        }
-
-        //$this->viderPanier();
-        return response()->json(['message' => 'Commande passée avec succès ' . $commandeEntete->id]);
-    }
 
 }

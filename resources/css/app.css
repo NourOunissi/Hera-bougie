@@ -1,3 +1,62 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.bg-light {
+    background-color:rgba(181, 121, 110, 1) !important;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #ffedd4;
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .nav-link:focus {
+    color:rgba(215, 159, 136, 1);
+    border-bottom: 2px solid white;
+    padding-bottom: 5px
+}
+
+.btn-light {
+    color: #ffedd4;
+    background-color:  rgba(181, 121, 110, 1) ;
+    border-color: #ffedd4;
+}
+
+body {
+    background-color:rgba(230, 219, 209, 1);
+    /* Autres styles pour le corps de la page si nécessaire */
+    margin: 0; /* Supprimer la marge par défaut du corps */
+    padding: 0; /* Supprimer le rembourrage par défaut du corps */
+    font-family: Arial, sans-serif; /* Définir la police par défaut */
+    color:rgba(215, 159, 136, 1); /* Définir la couleur du texte par défaut */
+  }
+
+  img, svg {
+    max-width: 100%;
+    height: flex;
+    display: block;
+    margin: 0 auto;
+}
+
+img, svg {
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+}
+
+img, svg {
+    max-width: 100%;
+      opacity: 0.7;
+      transition: opacity 0.3s ease-in-out;
+}
+
+.mt-4 {
+    margin-top: 10rem !important;
+}
+
+.card-img-top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border-radius: 0.25rem;
+    width: 20rem;
+    height: 20rem; /* Fixer la largeur des cartes à 18rem (ajustez selon vos besoins) */
+}

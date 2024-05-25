@@ -21,18 +21,8 @@ class BougieController extends Controller
 
     public function index()
     {
-        /*
-        // Récupérer les articles du panier depuis la session
-        $cartItems = Session::get('cart', []);
-
-        // Calculer le prix total
-        $totalPrice = $this->calculateTotalPrice($cartItems);
-
-        return view('bougie', ['cartItems' => $cartItems, 'totalPrice' => $totalPrice]);
-        */
 
         return view('bougie');
-
     }
 
 

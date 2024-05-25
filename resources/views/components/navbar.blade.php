@@ -1,5 +1,3 @@
-<!-- <link rel="stylesheet" href="{{ asset('assets/app.css') }}"> -->
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand mx-auto" href="{{ route('app_home') }}">
