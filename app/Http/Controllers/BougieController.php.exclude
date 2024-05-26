@@ -25,22 +25,4 @@ class BougieController extends Controller
         return view('bougie');
     }
 
-
-
-
-
-
-
-    public function clearBougie()
-    {
-        // Supprimez le panier de la session
-        Session::forget('cart');
-
-        // Ajoutez également une nouvelle entrée vide dans la session pour forcer la mise à jour immédiate
-        Session::put('cart', []);
-
-        // Retournez une réponse JSON indiquant le succès de l'opération
-        return response()->json(['message' => 'Le panier a été vidé avec succès']);
-    }
-
 }

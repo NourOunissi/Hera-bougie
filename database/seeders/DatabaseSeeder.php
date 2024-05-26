@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call([ParfumSeeder::class]);
         $this->call([ProduitsSeeder::class]);
         $this->call([UsersSeeder::class]);
+        $this->call([CommandesSeeder::class]);
     }
 }

@@ -68,7 +68,7 @@ class EmailService
 
     public function viewSendEmail($name, $activation_code, $activation_token)
     {
-        return  view('mail.confirmation_email')
+        return view('mail.confirmation_email')
             ->with([
                 'name' => $name,
                 'activation_code' => $activation_code,
@@ -78,10 +78,10 @@ class EmailService
 
     public function viewResatPassword($name, $activation_token)
     {
-        return  view('mail.reset_password')
-        ->with([
-            'name' => $name,
-            'activation_token' => $activation_token
-        ]);
+        return view('mail.reset_password')
+            ->with([
+                'name' => $name,
+                'activation_token' => $activation_token
+            ]);
     }
 }

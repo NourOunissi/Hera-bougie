@@ -6,6 +6,13 @@
 @section('content')
     <h1>Panier</h1>
 
+    <!-- Panier vide -->
+    @if (count($cartItems) === 0)
+        <p>Votre panier est vide</p>
+        <a href="{{ route('app_bougie') }}">Retour à la boutique</a>
+
+    <!-- Panier pas vide -->
+    @else
     <section class="h-100 h-custom">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -124,12 +131,13 @@
             </div>
         </div>
     </div>
+    @endif
 
 </section>
 @endsection
 <script>
     function clearBougie() {
-        fetch('/clear-bougie', {
+        fetch('{{ route('clear-bougie') }}', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -138,7 +146,7 @@
             })
             .then(response => response.json())
             .then(data => {
-                alert(data.message);
+                //alert(data.message);
 
                 // Rechargez la page côté client
                 location.reload();
@@ -170,7 +178,7 @@
             })
             .then(response => response.json())
             .then(data => {
-                alert(data.message);
+               // alert(data.message);
 
                 // Rechargez la page côté client si la suppression a réussi
                 if (!data.error) {

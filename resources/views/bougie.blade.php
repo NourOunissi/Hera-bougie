@@ -6,19 +6,19 @@
 
 <div style="display: flex; flex-direction: row;">
     <h1>Bougies</h1>
-    <div style="display: flex; align-items: center; justify-content: space-between; gap:20px;margin-left: 20px;">
+    <div style="width: 100%; display: flex; align-items: center; justify-content: flex-end; gap:20px; margin-left: 20px;">
         
     <!-- Couleurs -->
-        <select id="couleur" name="couleur" class="form-select" aria-label="Default select example" style="width: 150px;">
-            <option selected value=""></option>
+        <select id="couleur" name="couleur" class="form-select" aria-label="Default select example" style="width: 200px;">
+            <option selected value="">Toutes les couleurs</option>
             @foreach ($couleurs as $couleur)
                 <option value="{{ $couleur['id'] }}" @if ($couleur['id'] == $couleurId) selected @endif>{{ $couleur['nom'] }}</option>
             @endforeach
         </select>
 
         <!-- Cires -->
-        <select id="cire" name="cire" class="form-select" aria-label="Default select example" style="width: 150px;">
-            <option selected value=""></option>
+        <select id="cire" name="cire" class="form-select" aria-label="Default select example" style="width: 200px;">
+            <option selected value="">Toutes les cires</option>
             @foreach ($cires as $cire)
                 <option value="{{ $cire['id'] }}" @if ($cire['id'] == $cireId) selected @endif>{{ $cire['nom'] }}</option>
             @endforeach
@@ -33,10 +33,10 @@
             <div class="card text-white bg-burlywood mb-2"
                 style="max-width: 18rem; background-color: rgba(178, 128, 113, 1)">
                 <img src="/assets/img/{{ $produit['image'] }}" class="card-img-top" alt="...">
-                <div class="card-header">{{ $produit['nom'] }}</div>
+                <div class="card-header"><strong>{{ $produit['nom'] }}</strong></div>
                 <div class="card-body">
 
-                    <p class="card-title">{{ $produit['description'] }} </p>
+                    <p style="height: 110px;" class="card-title">{{ $produit['description'] }} </p>
 
                     <p class="card-text">Prix: {{ $produit['prix'] }} € <br />
                         En stock: {{ $produit['stock'] }} <br />
@@ -87,7 +87,7 @@
                     .message); // Vous pouvez personnaliser cela en fonction de vos besoins
             },
             error: function (error) {
-                console.log(error);
+                alert(error.responseJSON);
             }
         });
     });

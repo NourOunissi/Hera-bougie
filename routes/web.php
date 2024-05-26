@@ -47,12 +47,12 @@ Route::controller(ShopController::class)->group(function () {
     Route::post('/passer-commande', 'passerCommande')->name('passer-commande');
     Route::post('/confirmation-commande', 'confirmationCommande')->name('confirmation-commande');
     Route::post('/clear-bougie-article', 'clearbougiearticle')->name('clear-bougie-article');
+    Route::post('/clear-bougie', 'clearbougie')->name('clear-bougie');
     Route::post('/update-item-quantity', 'updateItemQuantity')->name('updateItemQuantity');
     Route::post('/add-to-cart', 'addToCart')->name('addToCart');
 });
 
 Route::controller(BougieController::class)->group(function () {
-    Route::post('/clear-bougie', 'clearbougie')->name('clear-bougie');
     Route::post('/get-total-price', 'gettotalprice')->name('gettotalprice');
 });
 

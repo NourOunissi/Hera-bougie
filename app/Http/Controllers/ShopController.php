@@ -50,7 +50,7 @@ class ShopController extends Controller
             // Vous pouvez retourner une réponse pour indiquer que l'opération a été effectuée avec succès
             //return response()->json(['message' => 'Article déjà dans le panier']);
 
-            $cartItems[$existingItemKey]['quantity'] = $newQuantity;
+            $cartItems[$existingItemKey]['quantity'] += $newQuantity;
 
         }
 
@@ -219,6 +219,16 @@ class ShopController extends Controller
         return response()->json(['error' => 'Article non trouvé dans le panier']);
     }
 
+    public function clearBougie()
+    {
+        // Supprimez le panier de la session
+        Session::forget('cart');
 
+        // Ajoutez également une nouvelle entrée vide dans la session pour forcer la mise à jour immédiate
+        Session::put('cart', []);
+
+        // Retournez une réponse JSON indiquant le succès de l'opération
+        return response()->json(['message' => 'Le panier a été vidé avec succès']);
+    }
 
 }
