@@ -82,6 +82,30 @@ on utilise des framework de teste comme PHP unit pour laravel et pour C# NUnit  
 framework : librerie
 
 
+1. Connexion au serveur o2switch
+url: kalmia.o2switch.net:2083
+username : kuph3194
+password: tXp8-U8me-p8n?
+Vous arrivez sur le cPanel du serveur
+2. Terminal
+Dans la page du cPanel, chercher « Avancé » puis cliquez sur « Terminal »
+Vous arrivez dans un terminal comme celui de VSCode
+Il faut taper la commande
+cd ifcsio2022.fr, pour aller dans le dossier principal
+puis, les commandes suivantes selon qui vous êtes :
+cd rap, pour johan
+cd weall, pour Yannis
+cd hera-bougie, pour Nour
+cd sneakers, pour Adlen
+3. Comment mettre à jour votre travail
+3.1 Faites un push depuis vscode vers votre github
+3.2 Dans le terminal sur le serveur, faites git pull
+3.2 Si vous avez fait des modifications de base de données, faites php artisan
+mirgrate:fresh --seed pour recréer toute la base de données
+3.3 Si vous avez fait des modifications dans le css ou le javascript, faites dans vscode
+npm run build, puis utilisez filezilla pour remplacer le dossier « build » du serveur par celui
+généré dans vscode.
+
 Hera-bougie
 host name localhost
 db name kuph3194_hera-bougie
