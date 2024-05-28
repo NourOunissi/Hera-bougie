@@ -4,6 +4,8 @@ use App\Http\Controllers\BougieController;
 use App\Http\Controllers\ProduitsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CommandeController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +18,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::resource ("commandes", CommandeController::class); // route pour commande
+
+// //Route::controller(CommandeController::class)->group(function () {
+//     Route::get('/commandes', 'commandes')->name('app_commandes');
+//     Route::get('/commandes', 'commandes')->name('app_commandes');
+//     Route::get('/commandes', 'commandes')->name('app_commandes');
+//     Route::get('/commandes', 'commandes')->name('app_commandes');
+
+// });
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'home')->name('app_home');
@@ -45,6 +56,8 @@ Route::controller(ProduitsController::class)->group(function () {
 Route::controller(ShopController::class)->group(function () {
     Route::get('/panier', 'panier')->name('app_panier');
     Route::post('/passer-commande', 'passerCommande')->name('passer-commande');
+    //Route::post('/commandes', 'commandes')->name('commandes');
+
     Route::post('/confirmation-commande', 'confirmationCommande')->name('confirmation-commande');
     Route::post('/clear-bougie-article', 'clearbougiearticle')->name('clear-bougie-article');
     Route::post('/clear-bougie', 'clearbougie')->name('clear-bougie');
@@ -52,9 +65,9 @@ Route::controller(ShopController::class)->group(function () {
     Route::post('/add-to-cart', 'addToCart')->name('addToCart');
 });
 
-Route::controller(BougieController::class)->group(function () {
-    Route::post('/get-total-price', 'gettotalprice')->name('gettotalprice');
-});
+// Route::controller(BougieController::class)->group(function () {
+//     Route::post('/get-total-price', 'gettotalprice')->name('gettotalprice');
+// });
 
 
 

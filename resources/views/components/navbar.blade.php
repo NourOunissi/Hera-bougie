@@ -55,6 +55,8 @@
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ route('commandes.index') }}">Mes commandes</a></li>
+
                             <li><a class="dropdown-item" href="{{ route('app_logout') }}">Se déconnecter</a></li>
                             <li><a class="dropdown-item" href="{{ route('app_cancel_account') }}">Supprimer le compte</a></li>
                         </ul>
